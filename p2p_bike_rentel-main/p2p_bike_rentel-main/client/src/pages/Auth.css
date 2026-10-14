@@ -1,0 +1,102 @@
+/* Auth (Login/Register) Page Styles */
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7f9fa;
+  }
+  
+  .auth-card {
+    background: #fff;
+    padding: 40px 32px 32px 32px;
+    border-radius: 16px;
+    box-shadow: 0 2px 24px rgba(79,140,255,0.10);
+    max-width: 370px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .auth-card h2 {
+    color: #4f8cff;
+    margin-bottom: 24px;
+    font-size: 2rem;
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  
+  .form-group label {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #c7d0e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f7f9fa;
+    transition: border 0.2s;
+  }
+  .form-group input:focus {
+    border: 1.5px solid #4f8cff;
+    outline: none;
+    background: #fff;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 0;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: #4f8cff;
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: #38e8ff;
+    color: #fff;
+  }
+  .btn-full {
+    width: 100%;
+  }
+  
+  .auth-link {
+    margin-top: 18px;
+    color: #666;
+    font-size: 0.98rem;
+  }
+  .auth-link a {
+    color: #4f8cff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .auth-link a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 500px) {
+    .auth-card {
+      padding: 28px 8px 24px 8px;
+    }
+  }
+  

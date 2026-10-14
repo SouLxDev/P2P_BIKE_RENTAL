@@ -1,0 +1,66 @@
+ALTER TABLE bookings
+  ADD COLUMN IF NOT EXISTS booking_status VARCHAR(40) DEFAULT 'pending_payment',
+  ADD COLUMN IF NOT EXISTS payment_status VARCHAR(40) DEFAULT 'created',
+  ADD COLUMN IF NOT EXISTS payout_status VARCHAR(40) DEFAULT 'not_ready',
+  ADD COLUMN IF NOT EXISTS platform_fee NUMERIC(10,2) DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS owner_amount NUMERIC(10,2) DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS refund_amount NUMERIC(10,2) DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS cancelled_at TIMESTAMP,
+  ADD COLUMN IF NOT EXISTS trip_completed_at TIMESTAMP;
+
+ALTER TABLE payments
+  ADD COLUMN IF NOT EXISTS currency VARCHAR(10) DEFAULT 'INR',
+  ADD COLUMN IF NOT EXISTS razorpay_order_id VARCHAR(100),
+  ADD COLUMN IF NOT EXISTS razorpay_payment_id VARCHAR(100),
+  ADD COLUMN IF NOT EXISTS razorpay_signature VARCHAR(255),
+  ADD COLUMN IF NOT EXISTS verified BOOLEAN DEFAULT false,
+  ADD COLUMN IF NOT EXISTS gateway_payload JSONB,
+  ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+CREATE TABLE IF NOT EXISTS owner_linked_accounts (
+  id SERIAL PRIMARY KEY,
+  owner_id INTEGER UNIQUE REFERENCES users(id) ON DELETE CASCADE,
+  razorpay_account_id VARCHAR(100) NOT NULL,
+  onboarding_status VARCHAR(40) DEFAULT 'created',
+  kyc_status VARCHAR(40) DEFAULT 'pending',
+  beneficiary_status VARCHAR(40) DEFAULT 'pending',
+  last_synced_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS payouts (
+  id SERIAL PRIMARY KEY,
+  booking_id INTEGER REFERENCES bookings(id) ON DELETE CASCADE,
+  owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  linked_account_id INTEGER REFERENCES owner_linked_accounts(id) ON DELETE SET NULL,
+  transfer_amount NUMERIC(10,2) NOT NULL,
+  platform_commission NUMERIC(10,2) DEFAULT 0,
+  razorpay_transfer_id VARCHAR(100),
+  transfer_status VARCHAR(40) DEFAULT 'created',
+  released_by_admin_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+  released_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS refunds (
+  id SERIAL PRIMARY KEY,
+  booking_id INTEGER REFERENCES bookings(id) ON DELETE CASCADE,
+  payment_id INTEGER REFERENCES payments(id) ON DELETE CASCADE,
+  refund_amount NUMERIC(10,2) NOT NULL,
+  razorpay_refund_id VARCHAR(100),
+  reason TEXT,
+  status VARCHAR(40) DEFAULT 'created',
+  gateway_payload JSONB,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS booking_audit_logs (
+  id SERIAL PRIMARY KEY,
+  booking_id INTEGER REFERENCES bookings(id) ON DELETE CASCADE,
+  event_type VARCHAR(100) NOT NULL,
+  metadata JSONB,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

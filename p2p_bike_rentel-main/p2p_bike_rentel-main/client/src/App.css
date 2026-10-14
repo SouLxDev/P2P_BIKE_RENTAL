@@ -1,0 +1,29 @@
+/* App Layout Styles */
+
+.App {
+  min-height: 100vh;
+  background: #f7f9fa;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 23px;
+  padding-bottom: 32px;
+  min-height: 70vh;
+}
+
+.loading {
+  text-align: center;
+  color: #4f8cff;
+  font-size: 1.2rem;
+  margin: 48px 0;
+}
+
+@media (max-width: 700px) {
+  .main-content {
+    padding-top: 12px;
+    padding-bottom: 16px;
+  }
+}

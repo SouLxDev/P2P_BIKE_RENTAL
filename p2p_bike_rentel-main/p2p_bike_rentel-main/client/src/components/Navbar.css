@@ -1,0 +1,242 @@
+/* Navbar Styles */
+
+.navbar {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(28, 54, 108, 0.08);
+  border-bottom: 1px solid rgba(79, 140, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #18376f;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.nav-logo-mark {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #4f8cff, #38e8ff);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(79, 140, 255, 0.24);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  flex: 1;
+}
+
+.nav-primary-links,
+.nav-auth-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-link {
+  color: #274067;
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 999px;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: #eef5ff;
+  color: #2e73e8;
+  transform: translateY(-1px);
+}
+
+.nav-link-emphasis {
+  background: linear-gradient(135deg, #4f8cff, #38e8ff);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(79, 140, 255, 0.2);
+}
+
+.nav-link-emphasis:hover {
+  background: linear-gradient(135deg, #4282f2, #30d5ed);
+  color: #fff;
+}
+
+.profile-menu {
+  position: relative;
+}
+
+.profile-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(79, 140, 255, 0.16);
+  background: #fff;
+  border-radius: 18px;
+  padding: 8px 12px 8px 8px;
+  cursor: pointer;
+  min-width: 220px;
+  box-shadow: 0 10px 24px rgba(28, 54, 108, 0.08);
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+
+.profile-trigger:hover,
+.profile-trigger.open {
+  border-color: rgba(79, 140, 255, 0.34);
+  box-shadow: 0 14px 30px rgba(79, 140, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #18376f, #4f8cff);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.profile-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  flex: 1;
+}
+
+.profile-label {
+  color: #6f829f;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.profile-name {
+  color: #18376f;
+  font-size: 0.96rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 130px;
+}
+
+.profile-caret {
+  color: #4f8cff;
+  font-size: 0.9rem;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 240px;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(79, 140, 255, 0.12);
+  box-shadow: 0 24px 48px rgba(28, 54, 108, 0.16);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dropdown-link {
+  width: 100%;
+  display: block;
+  text-align: left;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: #274067;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.dropdown-link:hover {
+  background: #eef5ff;
+  color: #2e73e8;
+}
+
+.dropdown-danger {
+  color: #d24f4f;
+}
+
+.dropdown-danger:hover {
+  background: #fff0f0;
+  color: #c43838;
+}
+
+@media (max-width: 900px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-primary-links,
+  .nav-auth-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .profile-menu {
+    width: 100%;
+  }
+
+  .profile-trigger {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .profile-name {
+    max-width: none;
+  }
+
+  .profile-dropdown {
+    position: static;
+    margin-top: 10px;
+    width: 100%;
+  }
+}

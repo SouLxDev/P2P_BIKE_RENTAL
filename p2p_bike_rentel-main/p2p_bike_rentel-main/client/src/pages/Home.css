@@ -1,0 +1,241 @@
+/* Home Page Styles */
+
+.home {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f9fa;
+  color: #222;
+  min-height: 100vh;
+}
+
+.hero {
+  background: linear-gradient(120deg, #4f8cff 0%, #38e8ff 100%);
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px 40px 20px;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  cursor: pointer;
+}
+.btn-primary {
+  background: #fff;
+  color: #4f8cff;
+  border: none;
+}
+.btn-primary:hover {
+  background: #4f8cff;
+  color: #fff;
+}
+.btn-secondary {
+  background: #222;
+  color: #fff;
+  border: none;
+}
+.btn-secondary:hover {
+  background: #fff;
+  color: #222;
+  border: 1px solid #222;
+}
+.btn-outline {
+  background: transparent;
+  color: #4f8cff;
+  border: 2px solid #4f8cff;
+  margin-top: 24px;
+}
+.btn-outline:hover {
+  background: #4f8cff;
+  color: #fff;
+}
+
+.features {
+  background: #fff;
+  padding: 48px 0 32px 0;
+}
+.features .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.features h2 {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #4f8cff;
+}
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+.feature-card {
+  background: #f7f9fa;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 32px 24px;
+  max-width: 260px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+.feature-card:hover {
+  box-shadow: 0 4px 24px rgba(79,140,255,0.15);
+}
+.feature-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.feature-card h3 {
+  color: #4f8cff;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: #444;
+}
+
+.featured-bikes {
+  background: #f0f4f8;
+  padding: 48px 0 32px 0;
+}
+.featured-bikes .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.featured-bikes h2 {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #4f8cff;
+}
+.bikes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.bike-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 20px 16px 24px 16px;
+  max-width: 260px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bike-card:hover {
+  box-shadow: 0 4px 24px rgba(79,140,255,0.15);
+}
+.bike-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+.bike-info h3 {
+  color: #4f8cff;
+  margin-bottom: 8px;
+}
+.bike-location {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+.bike-price {
+  font-weight: bold;
+  color: #38e8ff;
+  margin-bottom: 10px;
+}
+.no-bikes {
+  text-align: center;
+  color: #888;
+  margin: 24px 0;
+}
+.text-center {
+  text-align: center;
+}
+.loading {
+  text-align: center;
+  color: #4f8cff;
+  font-size: 1.2rem;
+  margin: 24px 0;
+}
+
+.how-it-works {
+  background: #fff;
+  padding: 48px 0 32px 0;
+}
+.how-it-works .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.how-it-works h2 {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #4f8cff;
+}
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+}
+.step {
+  background: #f7f9fa;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 32px 24px;
+  max-width: 220px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+.step:hover {
+  box-shadow: 0 4px 24px rgba(79,140,255,0.15);
+}
+.step-number {
+  background: #4f8cff;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 0 auto 12px auto;
+}
+
+@media (max-width: 900px) {
+  .features-grid, .bikes-grid, .steps {
+    flex-direction: column;
+    align-items: center;
+  }
+} 
